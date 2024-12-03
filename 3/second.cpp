@@ -36,11 +36,10 @@ std::string takeInput() {
   std::copy(input, input_end, inserter);
   return text;
 }
+
 int main() {
   std::string input = takeInput();
   input = CleanString(input);
-  // std::ifstream myfile("input.txt");
-  // std::string l;
   int total = 0;
   std::regex mul_pattern(R"(mul\((\d{1,3}),(\d{1,3})\))");
   bool suffix = true;
@@ -53,20 +52,6 @@ int main() {
       suffix = false;
     }
   }
-
-  // while (std::getline(myfile, l)) {
-  //   std::regex mul_pattern(R"(mul\((\d{1,3}),(\d{1,3})\))");
-  //   bool suffix = true;
-  //   std::smatch match;
-  //   while (suffix) {
-  //     if (std::regex_search(l, match, mul_pattern)) {
-  //       total += std::stoi(match[1]) * std::stoi(match[2]);
-  //       l = match.suffix();
-  //     } else {
-  //       suffix = false;
-  //     }
-  //   }
-  // }
   std::cout << "total: " << total << '\n';
   return 0;
 }
